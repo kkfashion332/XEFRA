@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>XEFRA - Rise of Nations</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <div id="rotate-warning">
+        <i class="fas fa-mobile-alt rotate-icon"></i>
+        <p>Please rotate your phone to Landscape mode</p>
+    </div>
+
+    <audio id="clickSound" src="https://assets.mixkit.co/active_storage/sfx/2568/2568-preview.mp3" preload="auto"></audio>
+
+    <div id="splash">
+        <img src="logo.png" alt="Xefra Logo">
+    </div>
+
+    <div id="main-screen">
+        <div class="bg-image"></div>
+
+        <div class="login-wrapper">
+            
+            <button class="btn google-btn" onclick="checkTerms('Google')">
+                <img src="https://upload.wikimedia.org/wikipedia/commons/5/53/Google_%22G%22_Logo.svg" alt="Google"> 
+                Sign in with Google
+            </button>
+
+            <div class="btn-row">
+                <button class="btn fb-btn" onclick="checkTerms('Facebook')">
+                    <i class="fab fa-facebook"></i> Sign in with Facebook
+                </button>
+                <button class="btn apple-btn" onclick="checkTerms('Apple')">
+                    <i class="fab fa-apple"></i> Sign in with Apple
+                </button>
+            </div>
+
+            <div class="divider">
+                <span>or</span>
+            </div>
+
+            <button class="btn guest-btn" onclick="checkTerms('Guest')">
+                <i class="fas fa-user"></i> Guest Login
+            </button>
+
+            <div class="terms-container">
+                <input type="checkbox" id="termsCheckbox">
+                <label for="termsCheckbox">
+                    I have read and agree to the <span class="highlight">Terms of Service</span> and <span class="highlight">Privacy Policy</span>
+                </label>
+            </div>
+
+        </div>
+    </div>
+
+    <script src="app.js"></script>
+</body>
+</html>
