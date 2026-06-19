@@ -1,0 +1,143 @@
+/* Basic Reset */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Arial', sans-serif;
+    user-select: none;
+}
+
+body, html {
+    width: 100%;
+    height: 100%;
+    background: #000;
+    overflow: hidden;
+}
+
+/* Landscape Force Warning */
+#rotate-warning {
+    display: none;
+    position: fixed;
+    top: 0; left: 0; width: 100%; height: 100%;
+    background: #000;
+    color: #fff;
+    z-index: 9999;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+}
+.rotate-icon { font-size: 50px; margin-bottom: 20px; animation: rotatePhone 2s infinite; }
+@keyframes rotatePhone { 0% { transform: rotate(0deg); } 50% { transform: rotate(-90deg); } 100% { transform: rotate(-90deg); } }
+
+/* CSS Media Query to show warning if device is in Portrait */
+@media screen and (orientation: portrait) {
+    #rotate-warning { display: flex; }
+    #splash, #main-screen { display: none !important; }
+}
+
+/* Splash Screen */
+#splash {
+    position: fixed;
+    width: 100%; height: 100%;
+    background: #000;
+    display: flex;
+    justify-content: center; align-items: center;
+    z-index: 100;
+    transition: opacity 0.5s ease;
+}
+#splash img { max-width: 60%; max-height: 60%; }
+
+/* Main Screen & Background */
+#main-screen {
+    position: fixed;
+    width: 100%; height: 100%;
+    display: none; /* Shown after splash */
+    opacity: 0;
+    transition: opacity 1s ease;
+}
+
+.bg-image {
+    position: absolute;
+    width: 100%; height: 100%;
+    background: url('bg.png') no-repeat center center/cover;
+    z-index: 1;
+}
+
+/* Login Wrapper (Bottom Center positioning) */
+.login-wrapper {
+    position: absolute;
+    bottom: 20px; /* Neeche se thodi jagah */
+    left: 50%;
+    transform: translateX(-50%);
+    width: 90%;
+    max-width: 450px;
+    z-index: 10;
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+}
+
+/* Buttons Styling */
+.btn {
+    width: 100%;
+    padding: 12px;
+    font-size: 14px;
+    font-weight: bold;
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+    transition: transform 0.1s, opacity 0.2s;
+}
+.btn:active { transform: scale(0.98); }
+.btn img { width: 18px; height: 18px; }
+.btn i { font-size: 18px; }
+
+/* Specific Buttons */
+.google-btn { background: #ffffff; color: #000000; }
+.google-btn:hover { background: #f1f1f1; }
+
+.btn-row { display: flex; justify-content: space-between; gap: 10px; }
+
+.fb-btn { background: #1877F2; color: #ffffff; flex: 1; }
+.fb-btn:hover { background: #166fe5; }
+
+.apple-btn { background: #ffffff; color: #000000; flex: 1; }
+.apple-btn:hover { background: #f1f1f1; }
+
+/* Divider "or" */
+.divider {
+    display: flex; align-items: center; text-align: center; color: rgba(255, 255, 255, 0.5); font-size: 12px;
+}
+.divider::before, .divider::after {
+    content: ''; flex: 1; border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+}
+.divider span { padding: 0 10px; }
+
+/* Guest Button */
+.guest-btn {
+    background: rgba(0, 0, 0, 0.6);
+    color: #ffffff;
+    border: 1px solid rgba(255, 255, 255, 0.3);
+}
+.guest-btn:hover { background: rgba(0, 0, 0, 0.8); border-color: #ffffff; }
+
+/* Terms & Conditions */
+.terms-container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    margin-top: 5px;
+}
+.terms-container input[type="checkbox"] {
+    width: 16px; height: 16px; accent-color: #ff6600; cursor: pointer;
+}
+.terms-container label {
+    color: #cccccc; font-size: 11px; cursor: pointer;
+}
+.terms-container .highlight { color: #ff9900; }
